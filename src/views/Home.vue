@@ -1,10 +1,20 @@
 <template>
   <div class="menu">
-    <a href="/#/ArraySort"><div class="item">ArraySort</div></a>
-    <a href="/#/Clipboard"><div class="item">Clipboard</div></a>
-    <a href="/#/Geolocation"><div class="item">Geolocation</div></a>
-    <a href="/#/Keyboard"><div class="item">Keyboard</div></a>
-    <a href="/#/WebRTC"><div class="item">WebRTC</div></a>
+    <router-link to="/arraysort">
+      <div class="item">ArraySort</div>
+    </router-link>
+    <router-link to="/clipboard">
+      <div class="item">Clipboard</div>
+    </router-link>
+    <router-link to="/geolocation">
+      <div class="item">Geolocation</div>
+    </router-link>
+    <router-link to="/keyboard">
+      <div class="item">Keyboard</div>
+    </router-link>
+    <router-link to="/webrtc">
+      <div class="item">WebRTC</div>
+    </router-link>
   </div>
 </template>
 
