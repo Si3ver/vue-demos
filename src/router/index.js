@@ -40,6 +40,19 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "webrtc" */ "../views/WebRTC.vue"),
   },
+  // 作业
+  {
+    path: "/transradix",
+    name: "transradix",
+    component: () =>
+      import(/* webpackChunkName: "transradix" */ "../views/TransRadix.vue"),
+  },
+  {
+    path: "/gridlayout",
+    name: "gridlayout",
+    component: () =>
+      import(/* webpackChunkName: "gridlayout" */ "../views/GridLayout.vue"),
+  },
 ];
 
 const router = new VueRouter({
