@@ -19,6 +19,21 @@
       <router-link to="/webrtc">
         <div class="item">WebRTC</div>
       </router-link>
+      <router-link to="/webrtcscreenshot">
+        <div class="item">WebRTCScreenShot</div>
+      </router-link>
+      <router-link to="/shorturl">
+        <div class="item">ShortURL</div>
+      </router-link>
+      <router-link to="/webworker">
+        <div class="item">WebWorker</div>
+      </router-link>
+      <router-link to="/imagegrid">
+        <div class="item">ImageGrid</div>
+      </router-link>
+      <router-link to="/lazyimage">
+        <div class="item">LazyImage</div>
+      </router-link>
     </div>
 
     <h3>作业</h3>

@@ -40,6 +40,38 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "webrtc" */ "../views/WebRTC.vue"),
   },
+  {
+    path: "/webrtcscreenshot",
+    name: "webrtcscreenshot",
+    component: () =>
+      import(
+        /* webpackChunkName: "webrtcscreenshot" */ "../views/WebRTCScreenShot.vue"
+      ),
+  },
+  {
+    path: "/shorturl",
+    name: "shorturl",
+    component: () =>
+      import(/* webpackChunkName: "shorturl" */ "../views/ShortURL.vue"),
+  },
+  {
+    path: "/webworker",
+    name: "webworker",
+    component: () =>
+      import(/* webpackChunkName: "webworker" */ "../views/WebWorker.vue"),
+  },
+  {
+    path: "/imagegrid",
+    name: "imagegrid",
+    component: () =>
+      import(/* webpackChunkName: "imagegrid" */ "../views/ImageGrid.vue"),
+  },
+  {
+    path: "/lazyimage",
+    name: "lazyimage",
+    component: () =>
+      import(/* webpackChunkName: "lazyimage" */ "../views/LazyImage.vue"),
+  },
   // 作业
   {
     path: "/transradix",

@@ -21,6 +21,18 @@
 + 05. 视频-WebRTC
   - [WebRTC_API](https://developer.mozilla.org/zh-CN/docs/Web/API/WebRTC_API)
   - [scaledrone文档](https://www.scaledrone.com/docs/quick-start/javascript)
++ 06. 媒体设备-WebRTCScreenShot
+  - [MediaDevices](https://developer.mozilla.org/zh-CN/docs/Web/API/MediaDevices)
++ 07. 短网址-ShortURL
+  - [IndexedDB](https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API)
++ 08. Worker
+  - [Web Worker API](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API)
+  - [worker-loader](https://www.webpackjs.com/loaders/worker-loader/)
++ 09. 网格布局-ImageGrid
+  - [CSS Grid 网格布局教程](https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html)
+  - [网格布局](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Grid_Layout)
++ 10. 图片懒加载-LazyImage
+  - [元素占用了多少空间？](https://developer.mozilla.org/zh-CN/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
 
 **作业**
 
