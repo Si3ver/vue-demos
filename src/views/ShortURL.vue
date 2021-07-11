@@ -18,7 +18,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 const SIGNS =
   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-+".split("");
 export default {

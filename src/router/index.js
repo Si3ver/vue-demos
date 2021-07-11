@@ -80,6 +80,12 @@ const routes = [
       import(/* webpackChunkName: "transradix" */ "../views/TransRadix.vue"),
   },
   {
+    path: "/webeditor",
+    name: "webeditor",
+    component: () =>
+      import(/* webpackChunkName: "webeditor" */ "../views/WebEditor.vue"),
+  },
+  {
     path: "/gridlayout",
     name: "gridlayout",
     component: () =>

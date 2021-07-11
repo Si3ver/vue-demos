@@ -41,6 +41,9 @@
       <router-link to="/transradix">
         <div class="item">TransRadix</div>
       </router-link>
+      <router-link to="/webeditor">
+        <div class="item">WebEditor</div>
+      </router-link>
     </div>
   </div>
 </template>

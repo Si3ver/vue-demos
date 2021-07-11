@@ -7,7 +7,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 let socket;
 let pc;
 
