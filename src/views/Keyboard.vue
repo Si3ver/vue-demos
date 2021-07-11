@@ -1,5 +1,7 @@
 <template>
   <div>
+    Keyboard
+    <hr />
     最后一次按下的按键: {{ currentKey }}
     <div>
       <button @click="doFullScreen">全屏</button>
@@ -47,6 +49,7 @@ export default {
       navigator.keyboard.unlock();
     },
     doFullScreen() {
+      // 全屏API
       document.documentElement.requestFullscreen();
     },
   },

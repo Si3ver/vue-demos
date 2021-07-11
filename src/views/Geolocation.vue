@@ -22,7 +22,9 @@ export default {
     };
   },
   mounted() {
+    this.timer = setTimeout(this.doTimeout, 5000);
     navigator.geolocation.getCurrentPosition((position) => {
+      // 获取地理位置
       console.log(position);
       this.position = position.coords;
       if (this.timer) {
