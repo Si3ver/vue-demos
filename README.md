@@ -38,4 +38,6 @@
 
 + 01. 进制转换-TransRadix
 + 02. web编辑器-WebEditor
+  - [FileReader](https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader)
+  - [Blob](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob)
   - [monaco-editor](https://microsoft.github.io/monaco-editor/index.html)
