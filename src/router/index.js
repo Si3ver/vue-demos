@@ -86,10 +86,12 @@ const routes = [
       import(/* webpackChunkName: "webeditor" */ "../views/WebEditor.vue"),
   },
   {
-    path: "/gridlayout",
-    name: "gridlayout",
+    path: "/fishtemplate",
+    name: "fishtemplate",
     component: () =>
-      import(/* webpackChunkName: "gridlayout" */ "../views/GridLayout.vue"),
+      import(
+        /* webpackChunkName: "fishtemplate" */ "../views/FishTemplate.vue"
+      ),
   },
 ];
 

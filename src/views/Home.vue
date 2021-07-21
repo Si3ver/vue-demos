@@ -44,6 +44,9 @@
       <router-link to="/webeditor">
         <div class="item">WebEditor</div>
       </router-link>
+      <router-link to="/fishtemplate">
+        <div class="item">FishTemplate</div>
+      </router-link>
     </div>
   </div>
 </template>

@@ -44,4 +44,5 @@ render(tmpl, {
 
 **实现源码**
 
-[render](./renderTemplate.js)
++ [代码](../../src/views/FishTemplate.vue)
++ [线上预览](https://si3ver.github.io/vue-demos/#/fishtemplate)
