@@ -15,7 +15,7 @@
 
 > 知识点：FileReader API
 
-1. 读取本地代码文件，使用 monaco-editor 编辑保存代码（ https://github.com/microsoft/monaco-editor ）。
+1. 读取本地代码文件，使用 monaco-editor 编辑保存代码（ https://github.com/microsoft/monaco-editor ）。✅
 2. 读取本地图片转换成灰度图保存。
 
 + [代码](../../src/views/WebEditor.vue)

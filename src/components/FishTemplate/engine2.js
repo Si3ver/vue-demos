@@ -38,10 +38,6 @@ export default class Engine {
       this.nodes.entries()
       // JSON.stringify([...this.nodes], null, 2)
     );
-    // console.log(printObjOrMap(this.nodes));
-    // for (const [k, v] of this.nodes) {
-    //   console.log(k, " => ", JSON.stringify(v, null, 2));
-    // }
 
     let rootNode = this.parseToNode(template);
     console.log("第二阶段|构建nodeTree>>>", rootNode);

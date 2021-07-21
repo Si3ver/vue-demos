@@ -42,3 +42,5 @@
   - [Blob](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob)
   - [monaco-editor](https://microsoft.github.io/monaco-editor/index.html)
 + 03. 自制模板引擎-FishTemplate
+  - [DocumentFragment](https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentFragment)
+  - [String.prototype.replace](https://developer.mozilla.org/zh-CN/docs/orphaned/Web/JavaScript/Reference/Global_Objects/String/replace)
