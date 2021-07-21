@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import V1 from "../components/FishTemplate/v1";
+// import V1 from "../components/FishTemplate/v1";
 import NewsList from "../components/FishTemplate/templates/NewsList.js";
 import V2 from "../components/FishTemplate/v2";
 import Template2 from "../components/FishTemplate/templates/template2.js";
@@ -33,7 +33,7 @@ export default {
           time: "2021-07-12 10:00:32",
         },
       ];
-      const v1 = new V1().mounted(this.$el);
+      const v1 = new V2().mounted(this.$el);
       v1.render(NewsList, { newslist });
     },
     mountTemplateV2() {

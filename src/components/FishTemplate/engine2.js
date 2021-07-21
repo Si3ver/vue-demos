@@ -83,7 +83,7 @@ export default class Engine {
     let stack = [[root, fragment, data]];
     //转成成node节点
     while (stack.length > 0) {
-      let [pnode, pdom, scope] = stack.pop();
+      let [pnode, pdom, scope] = stack.shift();
       if (pnode.attr.get("for")) {
         let [key, prop] = pnode.attr.get("for").split("in");
         key = key.trim();
@@ -106,6 +106,18 @@ export default class Engine {
             stack.push([item, ele, newScope]);
           });
         }
+      } else if (pnode.attr.get("v-if")) {
+        const prop = pnode.attr.get("v-if").trim();
+        const isShow = this.ifShow(scope, prop);
+        if (isShow) {
+          let html = this.scopehtmlParse(pnode, data, scope);
+          let ele = this.createElement(pnode, html);
+          this.scopeAtrrParse(ele, pnode, data, scope);
+          pdom.appendChild(ele);
+          pnode.children.forEach((item) => {
+            stack.push([item, ele, scope]);
+          });
+        }
       } else {
         let html = this.scopehtmlParse(pnode, data, scope);
         let ele = this.createElement(pnode, html);
@@ -120,6 +132,19 @@ export default class Engine {
     return fragment;
   }
 
+  /** 判断 scope 对象 prop 属性是否为真 */
+  ifShow(scope, propStr) {
+    const propArr = propStr.split(".");
+    for (const p of propArr) {
+      if (!scope[p]) {
+        return false;
+      }
+      scope = scope[p];
+    }
+    return true;
+  }
+
+  /** 子节点uuid 或 元素内文本节点 */
   scopehtmlParse(node, globalScope, curentScope) {
     return node.childrenTemplate.replace(/\{\{(.*?)\}\}/g, (s0, s1) => {
       let props = s1.split(".");
@@ -146,8 +171,14 @@ export default class Engine {
     }
   }
 
+  /**
+   * 根据 Vnode 创建 dom
+   * @param {Vnode} node
+   * @param {string} html
+   * @returns {DocumentFragment} DOM片段
+   */
   createElement(node, html) {
-    let ignoreAttr = ["for", "click"];
+    let ignoreAttr = ["for", "v-if", "click"];
     let dom = document.createElement(node.tag);
     for (let [key, val] of node.attr) {
       if (!ignoreAttr.includes(key)) {
@@ -160,10 +191,15 @@ export default class Engine {
     return dom;
   }
 
+  /**
+   * 把属性字符串解析成Map
+   * @param {string} str  eg: 'abc=def'
+   * @returns {Map} eg: abc => def
+   */
   parseAttribute(str) {
     let attr = new Map();
     str = str.trim();
-    str.replace(/(\w+)\s*=['"](.*?)['"]/gm, (s0, s1, s2) => {
+    str.replace(/([\w-]+)\s*=['"](.*?)['"]/gm, (s0, s1, s2) => {
       attr.set(s1, s2);
       return s0;
     });
