@@ -5531,10 +5531,17 @@ mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@^0.5.5, mkdirp@~0.5.1:
   dependencies:
     minimist "^1.2.5"
 
-monaco-editor@^0.25.2:
-  version "0.25.2"
-  resolved "https://registry.nlark.com/monaco-editor/download/monaco-editor-0.25.2.tgz#119e2b15bbd968a1a99c03cac9c329316d7c37e9"
-  integrity sha1-EZ4rFbvZaKGpnAPKycMpMW18N+k=
+monaco-editor-webpack-plugin@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/monaco-editor-webpack-plugin/-/monaco-editor-webpack-plugin-4.1.1.tgz#b44127910c8f4a29bde72859a1c4107c2960a939"
+  integrity sha512-daa+k3rytb7Jf8bcSSsbrnMsCPR7+kiHUGt08Bvqxdws3tGMPMzsiiRgCyckpKY4XChIXWoasDav3idHhrooEQ==
+  dependencies:
+    loader-utils "^2.0.0"
+
+monaco-editor@^0.26.1:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/monaco-editor/-/monaco-editor-0.26.1.tgz#62bb5f658bc95379f8abb64b147632bd1c019d73"
+  integrity sha512-mm45nUrBDk0DgZKgbD7+bhDOtcAFNGPJJRAdS6Su1kTGl6XEgC7U3xOmDUW/0RrLf+jlvCGaqLvD4p2VjwuwwQ==
 
 move-concurrently@^1.0.1:
   version "1.0.1"

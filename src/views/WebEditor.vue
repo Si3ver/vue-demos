@@ -1,13 +1,10 @@
 <template>
   <div>
-    <h2>monaco editor</h2>
+    <h2>在线编辑器</h2>
     <hr />
-    <div>--- Step1: 选择文件 ---</div>
+    <div id="monaco"></div>
     <input type="file" accept=".txt" @change="openFile" ref="files" />
-    <div>--- Step2: 编辑 ---</div>
-    <div id="monaco" ref="monaco"></div>
-    <div>--- Step3: 导出 ---</div>
-    <div class="btn" @click="save">另存为</div>
+    <div class="btn" @click="save">保存</div>
   </div>
 </template>
 
@@ -18,26 +15,41 @@ export default {
   name: "WebEditor",
   data() {
     return {
-      code: "",
-      editor: null,
+      monacoHandler: null,
+      monacoData: "",
     };
   },
   mounted() {
-    console.log(monaco);
+    console.log("monaco >>>", monaco);
+    this.initMonaco();
   },
-  created() {
-    this.$nextTick(() => {
-      this.editor = monaco.editor.create(this.$refs.monaco, {
-        value: this.code,
-        language: "javascript",
-        theme: "vs-dark",
-      });
-      this.editor.onDidBlurEditorText((e) => {
-        console.log(e);
-      });
-    });
+  destroyed() {
+    this.destroyMonaco();
   },
   methods: {
+    initMonaco111() {
+      this.monacoEditor = monaco.editor.create(
+        document.getElementById("monaco"),
+        {
+          value: this.monacoData,
+          automaticLayout: true,
+          language: "javascript",
+        }
+      );
+    },
+    initMonaco() {
+      this.monacoHandler = monaco.editor.create(
+        document.getElementById("monaco"),
+        {
+          value: this.monacoData,
+          language: "javascript",
+          theme: "vs-dark",
+        }
+      );
+    },
+    destroyMonaco() {
+      this.monacoHandler.dispose();
+    },
     openFile() {
       console.log("打开文件", this.$refs.files.files);
       const file = this.$refs.files.files[0];
@@ -45,8 +57,8 @@ export default {
         const reader = new FileReader();
         reader.onload = (evt) => {
           const content = evt.target.result;
-          this.code = content;
-          this.editor.setValue(content);
+          this.monacoData = content;
+          this.monacoHandler.setValue(content);
         };
         reader.onerror = (err) => {
           console.log(err);
@@ -77,5 +89,6 @@ export default {
   width: 600px;
   height: 800px;
   border: 1px solid #333;
+  margin-bottom: 20px;
 }
 </style>
