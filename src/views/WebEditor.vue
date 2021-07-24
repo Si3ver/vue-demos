@@ -4,7 +4,7 @@
     <hr />
     <div id="monaco"></div>
     <input type="file" accept=".txt" @change="openFile" ref="files" />
-    <div class="btn" @click="save">保存</div>
+    <div class="btn" @click="saveFile">保存</div>
   </div>
 </template>
 
@@ -16,7 +16,8 @@ export default {
   data() {
     return {
       monacoHandler: null,
-      monacoData: "",
+      monacoData: `console.log('Hello monaco!');\n\n`,
+      filename: "",
     };
   },
   mounted() {
@@ -27,16 +28,6 @@ export default {
     this.destroyMonaco();
   },
   methods: {
-    initMonaco111() {
-      this.monacoEditor = monaco.editor.create(
-        document.getElementById("monaco"),
-        {
-          value: this.monacoData,
-          automaticLayout: true,
-          language: "javascript",
-        }
-      );
-    },
     initMonaco() {
       this.monacoHandler = monaco.editor.create(
         document.getElementById("monaco"),
@@ -54,6 +45,7 @@ export default {
       console.log("打开文件", this.$refs.files.files);
       const file = this.$refs.files.files[0];
       if (file.name) {
+        this.filename = file.name;
         const reader = new FileReader();
         reader.onload = (evt) => {
           const content = evt.target.result;
@@ -66,13 +58,13 @@ export default {
         reader.readAsText(file);
       }
     },
-    save() {
-      const content = this.editor.getValue();
+    saveFile() {
+      const content = this.monacoHandler.getValue();
       console.log(content);
       const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
-      this.saveAs(blob, "file.txt");
+      this._saveAs(blob, this.filename);
     },
-    saveAs(blob, filename) {
+    _saveAs(blob, filename) {
       let url = URL.createObjectURL(blob);
       const downloadAnchorNode = document.createElement("a");
       downloadAnchorNode.setAttribute("href", url);
@@ -90,5 +82,8 @@ export default {
   height: 800px;
   border: 1px solid #333;
   margin-bottom: 20px;
+}
+input {
+  margin-left: 10px;
 }
 </style>
