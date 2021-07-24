@@ -4,6 +4,7 @@
     <hr />
     <div id="monaco"></div>
     <input type="file" accept=".txt" @change="openFile" ref="files" />
+    <div class="btn" @click="preview">预览</div>
     <div class="btn" @click="saveFile">保存</div>
   </div>
 </template>
@@ -17,7 +18,7 @@ export default {
     return {
       monacoHandler: null,
       monacoData: `console.log('Hello monaco!');\n\n`,
-      filename: "",
+      filename: "demo.js",
     };
   },
   mounted() {
@@ -40,6 +41,11 @@ export default {
     },
     destroyMonaco() {
       this.monacoHandler.dispose();
+    },
+
+    preview() {
+      console.log(this.filename);
+      console.log(this.monacoData);
     },
     openFile() {
       console.log("打开文件", this.$refs.files.files);
