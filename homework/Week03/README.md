@@ -14,3 +14,7 @@
 2. 点击预览按钮，`node` 提供一个接口，保存文件
 3. `node` 执行 `shell` 命令 `npm run build` 编译
 4. 通知浏览器客户端加载组件并渲染
+
++ [项目地址](../../practise/vueSfcPreview/README.md)
++ [client代码](../../practise/vueSfcPreview/client)
++ [server代码](../../practise/vueSfcPreview/server)
