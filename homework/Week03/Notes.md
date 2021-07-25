@@ -31,6 +31,8 @@
 
 > http://www.alloyteam.com/2020/04/14338/#prettyPhoto
 
+1. [远端-共享模块](../../practise/federationRemote/webpack.config.js)
+2. [使用端-消费模块](../../practise/federationHost/webpack.config.js)
 
 ### Webpack 插件开发
 
