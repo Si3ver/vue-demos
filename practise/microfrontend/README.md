@@ -19,3 +19,10 @@ $ yarn start:sub-react
 # 启动主应用(8080端口)
 $ yarn start:main
 ```
+
+## 打开方式二：全部启动
+
+```sh
+$ yarn start
+# 然后浏览器打开 localhost:8080 (主应用)
+```

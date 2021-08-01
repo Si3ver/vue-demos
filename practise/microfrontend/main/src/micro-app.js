@@ -1,3 +1,5 @@
+import store from './store'
+
 const microApps = [
   {
     name: 'sub-vue',
@@ -14,9 +16,10 @@ const microApps = [
 const apps = microApps.map(item => {
   return {
     ...item,
-    container: '#subapp-viewport',
+    container: '#subapp-viewport', // 子应用挂载的div
     props: {
-      routerBase: item.activeRule,
+      routerBase: item.activeRule, // 下发基础路由
+      getGlobalState: store.getGlobalState // 下发getGlobalState方法
     }
   }
 })

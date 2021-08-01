@@ -1,17 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <a href="#" @click="gotoSubReact" style="marin: 0 0 0 10px">跳转到sub-react</a>
+    </div>
+    <div>
+      从vuex的global module的state： {{ JSON.stringify(user) }}
+    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { mapState } from 'vuex'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  computed: {
+    // 通过global获取user的信息
+    ...mapState('global', {
+      user: state => state.user
+    })
+  },
+  methods: {
+    gotoSubReact () {
+      history.pushState(null, 'sub-react', '/sub-react')
+    }
   }
 }
 </script>
@@ -23,6 +36,19 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+
 </style>
