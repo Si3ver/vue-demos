@@ -1,5 +1,6 @@
 <template>
   <div class="layout-wrapper">
+    <!-- 主应用：github link -->
     <a
       style="
         display: inline-block;
@@ -42,6 +43,7 @@
         ></path>
       </svg>
     </a>
+    <!-- 主应用：导航栏 -->
     <div class="layout-header">
       <div class="logo">MAIN-APP</div>
       <ul class="sub-apps">
@@ -56,7 +58,11 @@
       </ul>
       <div class="userinfo">主应用的state：{{ JSON.stringify(user) }}</div>
     </div>
-    <div id="subapp-viewport"></div>
+    <!-- 挂载子应用 -->
+    <div class="sub-apps-wrapper">
+      <div id="subapp-viewport1"></div>
+      <div id="subapp-viewport2"></div>
+    </div>
   </div>
 </template>
 
@@ -64,6 +70,7 @@
 import NProgress from "nprogress";
 import microApps from "./micro-app";
 import store from "@/store";
+
 export default {
   name: "App",
   data() {
@@ -195,5 +202,17 @@ body {
       top: 0;
     }
   }
+}
+
+.sub-apps-wrapper {
+  display: flex;
+}
+#subapp-viewport1 {
+  width: 30vh;
+  height: calc(100vh - 50px);
+}
+#subapp-viewport2 {
+  flex: 1;
+  height: calc(100vh - 50px);
 }
 </style>

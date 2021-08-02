@@ -1,8 +1,13 @@
 import React from 'react';
+import NewsContent from './components/NewsContent';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const showNewsContent = true
+  if (showNewsContent) {
+    return <NewsContent />
+  }
   return (
     <div className="App">
       <header className="App-header">

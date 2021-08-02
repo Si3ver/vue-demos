@@ -1,10 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import NewsList from '../views/NewsList.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/',
+    name: 'NewsList',
+    component: NewsList,
+  },
   {
     path: '/',
     name: 'Home',

@@ -26,3 +26,10 @@ $ yarn start:main
 $ yarn start
 # 然后浏览器打开 localhost:8080 (主应用)
 ```
+
+## 记录
+
+1. 同时激活多个子应用 https://github.com/umijs/qiankun/issues/487
+2. 子应用通信 https://github.com/umijs/qiankun/issues/39
+  - main app vuex ❌
+  - eventbus

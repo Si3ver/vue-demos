@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <a href="#" @click="gotoSubReact" style="marin: 0 0 0 10px">跳转到sub-react</a>
-    </div>
-    <div>
+    </div> -->
+    <!-- <div>
       从vuex的global module的state： {{ JSON.stringify(user) }}
-    </div>
+    </div> -->
     <router-view/>
   </div>
 </template>
