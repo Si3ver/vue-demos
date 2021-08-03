@@ -14,3 +14,20 @@
 + [父应用](../../practise/microfrontend/README.md)
 + [子应用A](../../practise/microfrontend/sub-vue/README.md)
 + [子应用B](../../practise/microfrontend/sub-react/README.md)
+
+### 0731
+
+将 7 月 29 日的微前端作业，在 Docker 或 Docker Compose 中运行。
+
+<!-- **解答**
+1. 拉取镜像 `docker pull node:latest`
+2. 进入docker宿主机 `docker run -it --rm node bash`
+3. 拉取git源代码 `git clone https://github.com/Si3ver/vue-demos.git`
+4. 切换到项目目录 `cd vue-demos/practise/microfrontend`
+5. 安装依赖 `npm instal`
+6. 启动项目，端口为docker的8080端口 `npm start`
+7. 给运行中的docker增加端口映射，新开一个terminal `docker` -->
+
+**解答**
+1. 打包本地镜像 `docker build . -t myweb`
+2. 启动容器 `docker run -d -p 7000:8080 myweb`
