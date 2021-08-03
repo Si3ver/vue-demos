@@ -15,6 +15,12 @@
 + [子应用A](../../practise/microfrontend/sub-vue/README.md)
 + [子应用B](../../practise/microfrontend/sub-react/README.md)
 
+**本地启动方式**
+1. 切换到项目地址 `cd practise/microfrontend`
+2. 安装项目依赖 `yarn`
+3. 启动项目 `yarn start`
+4. 浏览器打开 http://localhost:8080/sub-app
+
 ![docker](./microfrontend.png)
 
 ### 0731
@@ -30,7 +36,7 @@
 6. 启动项目，端口为docker的8080端口 `npm start`
 7. 给运行中的docker增加端口映射，新开一个terminal `docker` -->
 
-**解答**
+**docker启动方式**
 1. 切换到项目地址 `cd practise/microfrontend`
 2. 打包本地镜像 `docker build . -t myserver`
 3. 启动容器 `docker run -d -p 7000:8080 -p 7501:7501 -p 7502:7502 myserver`
