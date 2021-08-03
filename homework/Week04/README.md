@@ -15,6 +15,8 @@
 + [子应用A](../../practise/microfrontend/sub-vue/README.md)
 + [子应用B](../../practise/microfrontend/sub-react/README.md)
 
+![docker](./microfrontend.png)
+
 ### 0731
 
 将 7 月 29 日的微前端作业，在 Docker 或 Docker Compose 中运行。
@@ -29,6 +31,11 @@
 7. 给运行中的docker增加端口映射，新开一个terminal `docker` -->
 
 **解答**
-1. 打包本地镜像 `docker build . -t myserver`
-2. 启动容器 `docker run -d -p 7000:8080 -p 7501:7501 -p 7502:7502 myserver`
-3. 浏览器打开 http://localhost:7000/sub-app
+1. 切换到项目地址 `cd practise/microfrontend`
+2. 打包本地镜像 `docker build . -t myserver`
+3. 启动容器 `docker run -d -p 7000:8080 -p 7501:7501 -p 7502:7502 myserver`
+4. 浏览器打开 http://localhost:7000/sub-app
+
+![docker](./docker.png)
+
+![docker app](./opendockerapp.png)
