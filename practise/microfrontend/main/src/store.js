@@ -10,7 +10,8 @@ import Vue from 'vue'
 const initialState = Vue.observable({
   user: {
     name: 'alwyn'
-  }
+  },
+  content: '点击左侧标题，以显示文章内容'
 })
 
 const actions = initGlobalState(initialState)

@@ -3,10 +3,10 @@ import NewsContent from './components/NewsContent';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function App({content}) {
   const showNewsContent = true
   if (showNewsContent) {
-    return <NewsContent />
+    return <NewsContent content={content} />
   }
   return (
     <div className="App">

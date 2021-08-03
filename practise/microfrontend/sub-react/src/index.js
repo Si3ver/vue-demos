@@ -5,13 +5,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-
-
-
-
-function render() {
+function render({content}) {
   ReactDOM.render(
-    <App />,
+    <App content={content} />,
     document.getElementById('root')
   );
 }
@@ -30,8 +26,13 @@ export async function bootstrap() {
  * 应用每次进入都会调用 mount 方法，通常我们在这里触发应用的渲染方法
  */
 export async function mount(props) {
-  console.log(props);
-  render();
+  const content = props.getGlobalState('content')
+  props.onGlobalStateChange((next, _prev) => {
+    // console.log('[sub-react]', _prev, ' --->>> ', next)
+    const { content } = next
+    render({content})
+  })
+  render({content});
 }
 /**
  * 应用每次 切出/卸载 会调用的方法，通常在这里我们会卸载微应用的应用实例

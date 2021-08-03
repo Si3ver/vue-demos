@@ -11,7 +11,7 @@
         right: 0;
         z-index: 1;
       "
-      href="https://github.com/si3ver/vue-demos"
+      href="https://github.com/Si3ver/vue-demos/tree/main/practise/microfrontend"
       class="github-corner"
       aria-label="View source on GitHub"
     >
@@ -208,11 +208,11 @@ body {
   display: flex;
 }
 #subapp-viewport1 {
-  width: 30vh;
-  height: calc(100vh - 50px);
+  width: 30%;
+  min-height: calc(100vh - 50px);
 }
 #subapp-viewport2 {
-  flex: 1;
+  width: 70%;
   height: calc(100vh - 50px);
 }
 </style>

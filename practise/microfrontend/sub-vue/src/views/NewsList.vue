@@ -14,9 +14,17 @@
 
 <script>
 import { resp } from "./data.js";
+import { mapState } from 'vuex'
 
 export default {
   name: "NewsList",
+    computed: {
+    // 通过global获取全局数据
+    ...mapState('global', {
+      user: state => state.user,
+      content: state => state.content,
+    })
+  },
   data() {
     return {
       data: resp.data,
@@ -26,7 +34,8 @@ export default {
   methods: {
     handleSelect(id) {
       this.selectedId = id;
-      console.log(this.data.find(item => item.id === id).content)
+      const { content = '' } = this.data.find(item => item.id === id)
+      this.$store.dispatch('global/setGlobalState', {content})
     },
   },
 };

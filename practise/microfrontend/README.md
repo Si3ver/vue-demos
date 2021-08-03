@@ -32,4 +32,4 @@ $ yarn start
 1. 同时激活多个子应用 https://github.com/umijs/qiankun/issues/487
 2. 子应用通信 https://github.com/umijs/qiankun/issues/39
   - main app vuex ❌
-  - eventbus
+  - [qiankun-initGlobalState](https://qiankun.umijs.org/zh/api#initglobalstatestate)
