@@ -29,5 +29,6 @@
 7. 给运行中的docker增加端口映射，新开一个terminal `docker` -->
 
 **解答**
-1. 打包本地镜像 `docker build . -t myweb`
-2. 启动容器 `docker run -d -p 7000:8080 myweb`
+1. 打包本地镜像 `docker build . -t myserver`
+2. 启动容器 `docker run -d -p 7000:8080 -p 7501:7501 -p 7502:7502 myserver`
+3. 浏览器打开 http://localhost:7000/sub-app
