@@ -7,8 +7,7 @@
 + MongoDB
 + ElasticSearch
 
-**使用方法**
-```sh
-$ yarn
-$ yarn start
-```
+**解答**
++ [项目地址](../../practise/fastify-demo/README.md)
+
+基于fastify和docker的后端应用。
