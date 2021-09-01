@@ -10,6 +10,5 @@ yarn server
 
 safari 打开 https://localhost:3000 
 
-```sh
-yarn client
-```
+可以开多个tab，模拟多个用户
+
