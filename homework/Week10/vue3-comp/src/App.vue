@@ -2,16 +2,19 @@
   <h1>ElementPlus Dialog</h1>
   <ElDialogDemo />
   <h1>My Dialog</h1>
+  <MyDialogDemo />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import ElDialogDemo from './components/ElDialogDemo.vue';
+import ElDialogDemo from './views/ElDialogDemo.vue';
+import MyDialogDemo from './views/MyDialogDemo.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    ElDialogDemo
+    ElDialogDemo,
+    MyDialogDemo,
   }
 });
 </script>
