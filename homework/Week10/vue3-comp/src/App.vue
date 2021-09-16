@@ -1,16 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <h1>ElementPlus Dialog</h1>
+  <ElDialogDemo />
+  <h1>My Dialog</h1>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import ElDialogDemo from './components/ElDialogDemo.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
+    ElDialogDemo
   }
 });
 </script>
