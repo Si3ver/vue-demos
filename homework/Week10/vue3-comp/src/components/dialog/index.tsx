@@ -1,7 +1,7 @@
 import { defineComponent, PropType, Teleport } from "vue";
 import classnames from "classnames";
 
-import Button from "../BaseButton";
+import Button from "../button";
 import styles from "./index.module.less";
 
 export default defineComponent({

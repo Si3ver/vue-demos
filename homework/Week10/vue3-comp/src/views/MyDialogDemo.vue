@@ -1,34 +1,52 @@
 <template>
-  <h1>Dialog</h1>
-
   <Button @click="handleButtonClick">打开 Dialog</Button>
-  <!-- <Dialog
+  <Dialog
     title="标题"
     :visible="visible"
     :handle-confirm="handleConfirm"
     :handle-cancel="handleCancel"
   >
-    这是一段dialog中的内容
-  </Dialog> -->
+    <p>这是一段dialog中的内容</p>
+    <p>这是一段dialog中的内容</p>
+    <p>这是一段dialog中的内容</p>
+    <p>这是一段dialog中的内容</p>
+  </Dialog>
 </template>
 
-<script setup lang="ts">
-import { ref } from "vue";
-import { Dialog } from "../components/dialog";
+<script lang="ts">
+import { defineComponent, ref } from "vue";
+import consola from 'consola'
+import { Button, Dialog } from "../components";
 
-console.log("Dialog", Dialog);
+export default defineComponent({
+  components: {
+    Button,
+    Dialog,
+  },
+  setup() {
+    const visible = ref(false);
 
-const visible = ref(false);
+    function handleButtonClick() {
+      consola.info('打开dialog')
+      visible.value = true;
+    }
 
-function handleButtonClick() {
-  visible.value = true;
-}
+    function handleConfirm() {
+      consola.info('点击了确定')
+      visible.value = false;
+    }
 
-// function handleConfirm() {
-//   visible.value = false;
-// }
+    function handleCancel() {
+      consola.info('点击了取消')
+      visible.value = false;
+    }
 
-// function handleCancel() {
-//   visible.value = false;
-// }
+    return {
+      visible,
+      handleButtonClick,
+      handleConfirm,
+      handleCancel,
+    }
+  }
+});
 </script>
