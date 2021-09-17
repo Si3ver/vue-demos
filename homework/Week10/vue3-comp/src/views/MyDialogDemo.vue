@@ -1,52 +1,34 @@
 <template>
-  <el-button type="text" @click="dialogVisible = true"
-    >点击打开 Dialog</el-button
-  >
+  <h1>Dialog</h1>
 
-  <el-dialog
-    title="提示"
-    v-model="dialogVisible"
-    width="30%"
-    :before-close="handleClose"
+  <Button @click="handleButtonClick">打开 Dialog</Button>
+  <!-- <Dialog
+    title="标题"
+    :visible="visible"
+    :handle-confirm="handleConfirm"
+    :handle-cancel="handleCancel"
   >
-    <span>这是一段信息</span>
-    <template #footer>
-      <span class="dialog-footer">
-        <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogVisible = false"
-          >确 定</el-button
-        >
-      </span>
-    </template>
-  </el-dialog>
-  <my-dialog />
+    这是一段dialog中的内容
+  </Dialog> -->
 </template>
 
-<script>
-import { defineComponent, ref } from "vue";
-import { ElMessageBox } from "element-plus";
-import MyDialog from "../components/MyDialog.vue";
+<script setup lang="ts">
+import { ref } from "vue";
+import { Dialog } from "../components/dialog";
 
-export default defineComponent({
-  components: {
-    MyDialog,
-  },
-  setup() {
-    const dialogVisible = ref(false);
+console.log("Dialog", Dialog);
 
-    const handleClose = (done) => {
-      ElMessageBox.confirm("确认关闭？")
-        .then(() => {
-          done();
-        })
-        .catch(() => {
-          // catch
-        });
-    };
-    return {
-      dialogVisible,
-      handleClose,
-    };
-  },
-});
+const visible = ref(false);
+
+function handleButtonClick() {
+  visible.value = true;
+}
+
+// function handleConfirm() {
+//   visible.value = false;
+// }
+
+// function handleCancel() {
+//   visible.value = false;
+// }
 </script>
