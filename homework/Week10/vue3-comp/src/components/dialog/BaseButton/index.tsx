@@ -1,4 +1,7 @@
 import { defineComponent, PropType } from "vue";
+import classnames from "classnames";
+
+import styles from "./index.module.less";
 
 export default defineComponent({
   name: "BaseButton",
@@ -23,7 +26,11 @@ export default defineComponent({
 
     return () => (
       <button
-        class="a"
+        class={classnames([
+          styles[props.type],
+          { [styles.normal]: !props.disable },
+          { [styles.disable]: props.disable },
+        ])}
         onClick={handleClick}
       >
         {slots.default?.()}

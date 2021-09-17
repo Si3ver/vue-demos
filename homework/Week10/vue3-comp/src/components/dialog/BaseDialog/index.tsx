@@ -1,6 +1,8 @@
 import { defineComponent, PropType, Teleport } from "vue";
+import classnames from "classnames";
 
 import Button from "../BaseButton";
+import styles from "./index.module.less";
 
 export default defineComponent({
   name: "BaseDialog",
@@ -39,26 +41,29 @@ export default defineComponent({
     return () => (
       <Teleport to="body">
         <div
-          class="a"
+          class={classnames([
+            styles.wrapper,
+            { [styles.hidden]: !props.visible },
+          ])}
         >
-          <div class={["dialogContainer", "dialogClass"]}>
+          <div class={[styles.dialogContainer, props.dialogClass]}>
             <div>
               {slots.header ? (
                 slots.header()
               ) : (
-                <div class={"defaultHeaderContent"}>{props.title}</div>
+                <div class={styles.defaultHeaderContent}>{props.title}</div>
               )}
             </div>
 
-            <div class={"content"}>{slots.default && slots.default()}</div>
+            <div class={styles.content}>{slots.default && slots.default()}</div>
 
-            <div class={"footer"}>
+            <div class={styles.footer}>
               {slots.footer
                 ? slots.footer()
                 : [
                     <Button
                       type="default"
-                      class={"buttonCancel"}
+                      class={styles.buttonCancel}
                       onClick={handleCancel}
                     >
                       取消
