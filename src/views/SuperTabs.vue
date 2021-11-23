@@ -21,6 +21,14 @@
         :label="item.title"
         :name="item.name"
       >
+        <template slot="label">
+          <template v-if="item.name === editableTabsValue && mode === 'edit'">
+            <input />
+          </template>
+          <template v-else>
+            <span>{{ item.title }}</span>
+          </template>
+        </template>
         {{ item.content }}
       </el-tab-pane>
     </el-tabs>
@@ -88,7 +96,7 @@ export default {
         const copy = [...this.editableTabs];
         for (let i = 0; i < copy.length; ++i) {
           if (copy[i].name === newTagName) {
-            copy[i].title = <input />;
+            copy[i].title = "❤️";
           }
         }
         this.editableTabs = copy;
