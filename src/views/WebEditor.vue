@@ -1,13 +1,11 @@
 <template>
   <div>
-    <h2>monaco editor</h2>
+    <h2>在线编辑器</h2>
     <hr />
-    <div>--- Step1: 选择文件 ---</div>
+    <div id="monaco"></div>
     <input type="file" accept=".txt" @change="openFile" ref="files" />
-    <div>--- Step2: 编辑 ---</div>
-    <div id="monaco" ref="monaco"></div>
-    <div>--- Step3: 导出 ---</div>
-    <div class="btn" @click="save">另存为</div>
+    <div class="btn" @click="preview">预览</div>
+    <div class="btn" @click="saveFile">保存</div>
   </div>
 </template>
 
@@ -18,35 +16,47 @@ export default {
   name: "WebEditor",
   data() {
     return {
-      code: "",
-      editor: null,
+      monacoHandler: null,
+      monacoData: `console.log('Hello monaco!');\n\n`,
+      filename: "demo.js",
     };
   },
   mounted() {
-    console.log(monaco);
+    console.log("monaco >>>", monaco);
+    this.initMonaco();
   },
-  created() {
-    this.$nextTick(() => {
-      this.editor = monaco.editor.create(this.$refs.monaco, {
-        value: this.code,
-        language: "javascript",
-        theme: "vs-dark",
-      });
-      this.editor.onDidBlurEditorText((e) => {
-        console.log(e);
-      });
-    });
+  destroyed() {
+    this.destroyMonaco();
   },
   methods: {
+    initMonaco() {
+      this.monacoHandler = monaco.editor.create(
+        document.getElementById("monaco"),
+        {
+          value: this.monacoData,
+          language: "javascript",
+          theme: "vs-dark",
+        }
+      );
+    },
+    destroyMonaco() {
+      this.monacoHandler.dispose();
+    },
+
+    preview() {
+      console.log(this.filename);
+      console.log(this.monacoData);
+    },
     openFile() {
       console.log("打开文件", this.$refs.files.files);
       const file = this.$refs.files.files[0];
       if (file.name) {
+        this.filename = file.name;
         const reader = new FileReader();
         reader.onload = (evt) => {
           const content = evt.target.result;
-          this.code = content;
-          this.editor.setValue(content);
+          this.monacoData = content;
+          this.monacoHandler.setValue(content);
         };
         reader.onerror = (err) => {
           console.log(err);
@@ -54,13 +64,13 @@ export default {
         reader.readAsText(file);
       }
     },
-    save() {
-      const content = this.editor.getValue();
+    saveFile() {
+      const content = this.monacoHandler.getValue();
       console.log(content);
       const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
-      this.saveAs(blob, "file.txt");
+      this._saveAs(blob, this.filename);
     },
-    saveAs(blob, filename) {
+    _saveAs(blob, filename) {
       let url = URL.createObjectURL(blob);
       const downloadAnchorNode = document.createElement("a");
       downloadAnchorNode.setAttribute("href", url);
@@ -77,5 +87,9 @@ export default {
   width: 600px;
   height: 800px;
   border: 1px solid #333;
+  margin-bottom: 20px;
+}
+input {
+  margin-left: 10px;
 }
 </style>

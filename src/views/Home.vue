@@ -28,9 +28,9 @@
       <router-link to="/shorturl">
         <div class="item">ShortURL</div>
       </router-link>
-      <router-link to="/webworker">
+      <!-- <router-link to="/webworker">
         <div class="item">WebWorker</div>
-      </router-link>
+      </router-link> -->
       <router-link to="/imagegrid">
         <div class="item">ImageGrid</div>
       </router-link>
@@ -46,6 +46,9 @@
       </router-link>
       <router-link to="/webeditor">
         <div class="item">WebEditor</div>
+      </router-link>
+      <router-link to="/fishtemplate">
+        <div class="item">FishTemplate</div>
       </router-link>
     </div>
   </div>

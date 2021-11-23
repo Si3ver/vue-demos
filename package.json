@@ -10,7 +10,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "element-ui": "^2.15.6",
-    "monaco-editor": "^0.25.2",
+    "monaco-editor": "^0.26.1",
     "vue": "^2.6.11",
     "vue-router": "^3.5.2",
     "worker-loader": "^3.0.8"
@@ -26,6 +26,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "less": "^4.1.1",
     "less-loader": "7.3.0",
+    "monaco-editor-webpack-plugin": "^4.1.1",
     "prettier": "^2.2.1",
     "vue-template-compiler": "^2.6.11"
   }

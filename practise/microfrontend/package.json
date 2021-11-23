@@ -1,0 +1,24 @@
+{
+  "name": "microfrontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "npm-run-all --serial install:*",
+    "install:main": "cd main && yarn",
+    "install:sub-vue": "cd sub-vue && yarn",
+    "install:sub-react": "cd sub-react && yarn",
+    "start": "npm-run-all --parallel start:*",
+    "start:main": "cd main && npm start",
+    "start:sub-vue": "cd sub-vue && npm start",
+    "start:sub-react": "cd sub-react && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}

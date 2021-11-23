@@ -1,0 +1,47 @@
+{
+  "url": "mongodb://root:mongodb@localhost:27017",
+  "data": [
+    {
+      "name": "todos",
+      "user": {
+        "user": "master",
+        "passwd": "master!123",
+        "role": "dbOwner",
+        "db": "todos"
+      },
+      "collections": [
+        {
+          "name": "todos",
+          "docs": [
+            {
+              "subject": "test-todo",
+              "datetime": "23999999",
+              "state": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "animals",
+      "user": {
+        "user": "master",
+        "passwd": "master!123",
+        "role": "dbOwner",
+        "db": "animals"
+      },
+      "collections": [
+        {
+          "name": "todos",
+          "docs": [
+            {
+              "name": "tiger",
+              "chineseName": "老虎",
+              "discription": "老虎是一种很凶猛的动物"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

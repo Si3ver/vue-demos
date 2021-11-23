@@ -15,8 +15,12 @@
 
 > 知识点：FileReader API
 
-1. 读取本地代码文件，使用 monaco-editor 编辑保存代码（ https://github.com/microsoft/monaco-editor ）。
+1. 读取本地代码文件，使用 monaco-editor 编辑保存代码（ https://github.com/microsoft/monaco-editor ）。✅
 2. 读取本地图片转换成灰度图保存。
 
 + [代码](../../src/views/WebEditor.vue)
 + [线上预览](https://si3ver.github.io/vue-demos/#/webeditor)
+
+> 踩坑总结：
+> 1. monaco-editor-webpack-plugin 与 monaco-editor 版本一定要匹配，否则会编译不通过；
+> 2. 不要和 worker-loader 一起用，会有冲突导致 work 起不来；

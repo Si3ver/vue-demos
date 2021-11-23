@@ -1,0 +1,120 @@
+version: "3.1"
+
+services:
+  mongodb:
+    image: "mongo:4.1"
+    container_name: mongo
+    restart: always
+    environment:
+      - "MONGO_INITDB_ROOT_USERNAME=root"
+      - "MONGO_INITDB_ROOT_PASSWORD=mongodb"
+    volumes:
+      - "mongodb_data:/data/db"
+      - "/etc/localtime:/etc/localtime"
+    ports:
+      - 27017:27017
+
+  mongo-express:
+    image: "mongo-express:0.49"
+    container_name: "mongo-express"
+    restart: "always"
+    environment:
+      - "ME_CONFIG_MONGODB_ADMINUSERNAME=root"
+      - "ME_CONFIG_MONGODB_ADMINPASSWORD=mongodb"
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongodb
+
+  redis:
+    image: redis:alpine
+    container_name: "redis"
+    restart: always
+    volumes:
+      - "redis_data:/data"
+    ports:
+      - "6379:6379"
+
+  mysql:
+    image: "mysql:5.7"
+    container_name: "mysql"
+    command: --default-authentication-plugin=mysql_native_password
+    restart: "always"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123qwe
+      MYSQL_DATABASE: todos
+      MYSQL_USER: dataUser
+      MYSQL_PASSWORD: 123qwe
+    ports:
+      - "3306:3306"
+    volumes:
+      - "mysql_data:/data"
+
+  phpmyadmin:
+    image: "phpmyadmin/phpmyadmin"
+    container_name: "phpmyadmin"
+    links:
+      - mysql:db
+    environment:
+      PMA_HOST: mysql
+      MYSQL_USER: dataUser
+      MYSQL_PASSWORD: 123qwe
+      MYSQL_ROOT_PASSWORD: 123qwe
+    ports:
+      - "9090:80"
+    depends_on:
+      - mysql
+
+  elasticsearch:
+    image: elasticsearch:7.14.0
+    container_name: elasticsearch
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - http.cors.allow-credentials=true
+      - http.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
+      - http.cors.allow-origin=*
+      - http.cors.enabled=true
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
+  dejavu:
+    image: appbaseio/dejavu:3.4.7
+    container_name: dejavu
+    ports:
+      - "1358:1358"
+    links:
+      - elasticsearch
+
+  elastichd:
+    image: containerize/elastichd:latest
+    container_name: elasticsearch-hd
+    ports:
+      - "9800:9800"
+    depends_on:
+      - elasticsearch
+    links:
+      - elasticsearch:es
+
+  # fastify:
+  #   build:
+  #     context: "."
+  #     dockerfile: "./Dockerfile"
+  #   container_name: fastify
+  #   restart: always
+  #   ports:
+  #     - "9001:3000"
+
+volumes:
+  mysql_data:
+  redis_data:
+  mongodb_data:
+  es_data:
