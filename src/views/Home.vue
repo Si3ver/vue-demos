@@ -4,6 +4,9 @@
     <hr />
     <h3>练习</h3>
     <div class="menu">
+      <router-link to="/supertabs">
+        <div class="item">SuperTabs</div>
+      </router-link>
       <router-link to="/arraysort">
         <div class="item">ArraySort</div>
       </router-link>

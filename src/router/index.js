@@ -11,6 +11,12 @@ const routes = [
     component: Home,
   },
   {
+    path: "/supertabs",
+    name: "supertabs",
+    component: () =>
+      import(/* webpackChunkName: "supertabs" */ "../views/SuperTabs.vue"),
+  },
+  {
     path: "/arraysort",
     name: "arraysort",
     component: () =>
